@@ -39,6 +39,9 @@ body {
   -webkit-font-smoothing: antialiased;
   font: "Normal" 100%/24 sans; }
 
+.debug {
+  font-size: 16rem; }
+
 h1,
 h2,
 h3,

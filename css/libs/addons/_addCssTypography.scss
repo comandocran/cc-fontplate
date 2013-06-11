@@ -17,6 +17,9 @@ body {
     @include baseType($weight, $lineHeightBase, $fontSizeBaseBody, $fontFamily);
 }
 
+.debug {
+    font-size: fontSize(6);
+}
 
 //
 //  Headings
