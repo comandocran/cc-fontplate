@@ -1,7 +1,7 @@
 FONTPLATE
 =========
 
-Framework that helps you make design decisions the rhythm vertical 
+Framework that helps you make design decisions for rhythm vertical 
 
 Credits
 =======
