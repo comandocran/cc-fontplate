@@ -1,0 +1,60 @@
+//
+//  Libs and configurations
+//
+
+@import "_config";
+@import "functions/_typography";
+
+//
+// Basic
+//
+
+@include fontFace($fontFamily, $filePath, $weight, $style);
+
+html {
+    font-size: $fontSizeBaseBody#{'%'};
+}
+
+
+body {
+    @if $debug == 'true' {
+        background-color:   transparent;
+    }
+    color: $bodyCopyColor;
+    @include baseType($weight, $lineHeightBase, $fontSizeBaseBody, $fontFamily);
+}
+
+.debug {
+    font-size: fontSize(6);
+}
+
+//
+//  Headings
+//
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $headingColor;
+}
+
+
+%hN {
+    text-rendering: optimizeLegibility;
+    line-height: 1;
+    margin-top: 0;
+    @if $debug == 'true' {
+        //background-color: $backgroundDebug;
+    }
+}
+
+
+@each $class in $sizesAndClass {
+    #{nth($class, 2)} {
+        @include modularScale(nth($class, 1));
+        @extend %hN;
+    }
+}

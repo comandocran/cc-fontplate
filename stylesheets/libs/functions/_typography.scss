@@ -1,0 +1,218 @@
+//
+// Function
+//
+
+// Based exponent function
+@function exponent($base, $exponent, $ratio) {
+
+    // reset value
+    $value: $base;
+    @if $exponent > 1 {
+        @for $i from 2 through $exponent {
+            $value: $base * $ratio;
+            // Save last base
+            $base: $value;
+        }
+    }
+    // negitive intergers get divided. A number divided by itself is 1
+    @if $exponent < 1 {
+        @for $i from 0 through -$exponent {
+            $value: $base / $ratio;
+            // Save last base
+            $base: $value;
+        }
+    }
+    // return the last value written
+    @return $value;
+
+}
+
+
+// how much space for maintenance of vertical rhythm
+@function lineForFontSize($sizeInput) {
+
+    $lines: $sizeInput/$lineHeightBase;
+    @if  $sizeInput > $fontSizeBase*1.5 {
+        @return ceil($lines)+1;
+    } @else {
+        @return round($lines);
+    }
+
+}
+
+
+// Small font sizes
+@function smallSize($sizeInput, $typeUnit) {
+
+    @if $typeUnit == "px" {
+        @return $lineHeightBase/$linesForSmallSizes;
+    } @else {
+        @return ($lineHeightBase/$sizeInput)/$linesForSmallSizes;
+    }
+
+}
+
+
+// Based http://vvv.tobiassjosten.net/css/px-to-em-with-sass/
+@function em($px, $base: $fontSizeBase) {
+
+    @return ($px / $base);
+
+}
+
+
+// Return size in EMs, REMs or PXs
+@function generateSize($sizeInput, $typeUnit) {
+
+    @if $typeUnit == "px" {
+        @return ceil($sizeInput)#{$typeUnit};
+    } @else {
+        @return em($sizeInput)#{$typeUnit};
+    }
+
+}
+
+
+// Return vertical rhythm
+@function generateLineHeight($sizeInput, $typeUnit) {
+
+    @if $typeUnit == "px" {
+        @if $sizeInput < $fontSizeBase {
+            @return smallSize($sizeInput, $typeUnit)#{$typeUnit};
+        } @else {
+            @return $lineHeightBase*lineForFontSize($sizeInput)#{$typeUnit};
+        }
+    } @else if $typeUnit == "em" {
+        @if $sizeInput < $fontSizeBase {
+            @return smallSize($sizeInput, $typeUnit)#{$typeUnit};
+        } @else {
+            @return ($lineHeightBase/$sizeInput)*(lineForFontSize($sizeInput))#{$typeUnit};
+        }
+    } @else {
+        @if $sizeInput < $fontSizeBase {
+            @return smallSize($sizeInput, $typeUnit);
+        } @else {
+            @return (($lineHeightBase/$sizeInput)*(lineForFontSize($sizeInput)));
+        }
+    }
+
+}
+
+@function generateMargin($typeUnit, $measure, $sizeInput) {
+
+    @if $typeUnit == "px" {
+        @return ($lineHeightBase*$measure)#{$typeUnit};
+    } @else if $typeUnit == "em" {
+        @return ((($fontSizeBase*$lineHeightBodyBase)/$sizeInput)*$measure)#{$typeUnit};
+    } @else {
+       @return ($lineHeightBodyBase*$measure)#{$typeUnit};
+    } 
+
+}
+
+@function adjustRythm($typeSizeInput, $sizeInput, $typeUnit, $measure : $module-measure) {
+    
+    @if $typeSizeInput == nth($typeSize, 1) {
+        @return generateSize($sizeInput, $typeUnit);
+    } @else if $typeSizeInput == nth($typeSize, 2) {
+        @return generateLineHeight($sizeInput, $typeUnit);
+    } @else {
+        @return generateMargin($typeUnit, $measure, $sizeInput);
+    }
+
+}
+
+@function fontSize($fontSize) {
+    @return nth($listSizes, $fontSize)#{$typeScaleUnit};
+}
+
+
+// Return list of class and your sizes
+@while ($maxExponent + 1) > 0 {
+
+    $newSize        : exponent($fontSizeBase, $maxExponent, $ratio);
+    $listSizes      : append($listSizes, $newSize, space);
+    $maxExponent    : $maxExponent - 1;
+
+}
+
+
+// Return sizes and class to which the rate is applied
+$sizesAndClass : zip($listSizes, $class);
+
+
+// Debug
+@if $debug == 'true' {
+
+    @each $class in $sizesAndClass {
+        @debug 'font-size            -->   '  adjustRythm(nth($typeSize, 1), nth($class, 1), $typeScaleUnit);
+        @debug 'font-size            -->   '  adjustRythm(nth($typeSize, 1), nth($class, 1), $typeScaleCrossBrow);
+        @debug 'line-height          -->   '  adjustRythm(nth($typeSize, 2), nth($class, 1), $typeScaleUnit);
+        @debug 'line-height          -->   '  adjustRythm(nth($typeSize, 2), nth($class, 1), $typeScaleCrossBrow);
+        @debug 'margin-bottom        -->   '  adjustRythm(nth($typeSize, 3), nth($class, 1), $typeScaleUnit);
+        @debug 'line-height          -->   '  adjustRythm(nth($typeSize, 2), nth($class, 1), $typeScaleCrossBrow);
+        @debug fontsize(1);
+        @debug nth($class, 1) nth($class, 2);
+    }
+
+}
+
+
+//
+// Mixins
+//
+
+@mixin modularScale($fontSizeInput) {
+
+    @if $typeScaleUnit != "rem" {
+        font-size           :    adjustRythm(nth($typeSize, 1), $fontSizeInput, $typeScaleUnit);
+        line-height         :    adjustRythm(nth($typeSize, 2), $fontSizeInput, $typeScaleUnit);
+        margin-bottom       :    adjustRythm(nth($typeSize, 3), $fontSizeInput, $typeScaleUnit);
+    } @else {
+        font-size           :    adjustRythm(nth($typeSize, 1), $fontSizeInput, $typeScaleCrossBrow);
+        font-size           :    adjustRythm(nth($typeSize, 1), $fontSizeInput, $typeScaleUnit);
+        line-height         :    adjustRythm(nth($typeSize, 2), $fontSizeInput, $typeScaleCrossBrow);
+        line-height         :    adjustRythm(nth($typeSize, 2), $fontSizeInput, $typeScaleUnit);
+        margin-bottom       :    adjustRythm(nth($typeSize, 3), $fontSizeInput, $typeScaleCrossBrow);
+        margin-bottom       :    adjustRythm(nth($typeSize, 3), $fontSizeInput, $typeScaleUnit);
+    }
+
+}
+
+
+@mixin fontFace($fontFamily, $filePath, $weight: normal, $style: normal) {
+
+  @font-face {
+    font-family: $fontFamily;
+    font-weight: $weight;
+    font-style: $style;
+
+    src: url('#{$filePath}.eot');
+    src: url('#{$filePath}.eot?#iefix')               format('embedded-opentype'),
+         url('#{$filePath}.woff')                     format('woff'),
+         url('#{$filePath}.ttf')                      format('truetype'),
+         url('#{$filePath}.svg##{$fontFamily}')       format('svg');
+  }
+
+}
+
+
+@mixin baseType($weight, $lineHeightBase, $fontSizeBaseBody, $fontFamily) {
+
+    @if $renderingText == 'legebility' {
+        text-rendering: optimizeLegibility;
+    } @else if $renderingText == 'speed' {
+        text-rendering: optimizeSpeed;
+    } @else {
+        text-rendering: geometricPrecision; 
+    }
+    @if $fontSmoothing {
+        -webkit-font-smoothing: antialiased;
+    }
+    @if $serif {
+        font: $weight #{$fontSizeBase}px/#{$lineHeightBase}px $fontFamily;
+    }@else {
+        font: $weight #{$fontSizeBase}px/#{$lineHeightBase}px $fontFamilySans;
+    }
+    
+}

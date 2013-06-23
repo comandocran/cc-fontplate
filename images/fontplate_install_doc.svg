@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="98px" height="126px" viewBox="0 0 98 126" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <title>Doc</title>
+    <description>Created with Sketch (http://www.bohemiancoding.com/sketch)</description>
+    <defs></defs>
+    <g id="Page 1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="landing page" transform="translate(-372.000000, -634.000000)">
+            <g id="Group" transform="translate(297.500000, 634.000000)">
+                <g id="Group copy">
+                    <g transform="translate(74.500000, 0.000000)">
+                        <g id="Group">
+                            <path d="M4.99456525,2.27373675e-13 L62,2.30926389e-13 L62,30.9943542 C62,33.7588961 64.2383594,36 67.0056458,36 L98,36 L98,5.00564575 C98,5.00296274 97.9999979,5.00028023 98,4.99761351 L98,121.002386 C98,123.759558 95.763857,126 93.0054348,126 L4.99456525,126 C2.23099732,126 0,123.762492 0,121.002386 L0,4.99761351 C0,2.24044198 2.23614303,2.27373675e-13 4.99456525,2.27373675e-13 Z M93.0054348,2.27373675e-13 C95.7690027,2.27373675e-13 98,2.23750778 98,4.99761351 C97.9956548,2.23675604 95.7589549,2.2543761e-13 93.0054348,2.27373675e-13 Z M93.0054348,2.27373675e-13" id="Rectangle 49" fill="#ECF0F1"></path>
+                            <path d="M62,2.28157059e-13 L62,30.9943542 C62,33.7588961 64.2383594,36 67.0056458,36 L98,36 L62,2.28157059e-13 Z M62,2.28157059e-13" id="Path" opacity="0.6" fill="#BDC3C7"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
