@@ -54,6 +54,7 @@ $listSizes          :   ();
 
 // Sort list from highest to lowest
 // nth(class, X) = Name class or tag
+// The base font-size is the penultimate value
 $class       		:   '.big', h1, h2, h3, h4, p, '.notes';
 $maxExponent        :   length($class) - 1;
 $linesForSmallSizes :   1.5; // In small sizes, under of font size base, is necessary indicate how many lines enter in one module of vertical rhythm. This number can be float
@@ -62,14 +63,14 @@ $linesForSmallSizes :   1.5; // In small sizes, under of font size base, is nece
 // Font families
 $fontFamily         :   sans-serif;
 $filePath           :   '';
-$weight             :   "Normal";
-$style              :   "Normal";
+$weight             :   Normal;
+$style              :   Normal;
 $fontProperties     :   $fontFamily, $filePath, $weight, $style;
 
 $fontFamilySans     :   sans;
 $filePathSans       :   '';
-$weightSans         :   "Normal";
-$styleSans          :   "Normal";
+$weightSans         :   Normal;
+$styleSans          :   Normal;
 $fontProperties     :   $fontFamily, $filePath, $weight, $style;
 
 $serif              :   false !default;
