@@ -24,8 +24,8 @@ footer, header, hgroup, menu, nav, section {
 
 @font-face {
   font-family: sans-serif;
-  font-weight: "Normal";
-  font-style: "Normal";
+  font-weight: Normal;
+  font-style: Normal;
   src: url(".eot");
   src: url(".eot?#iefix") format("embedded-opentype"), url(".woff") format("woff"), url(".ttf") format("truetype"), url(".svg#sans-serif") format("svg"); }
 
@@ -37,7 +37,7 @@ body {
   color: #1e1e1e;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  font: "Normal" 100%/24 sans; }
+  font: Normal 100%/24 sans; }
 
 .debug {
   font-size: 16rem; }
