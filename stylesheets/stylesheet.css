@@ -155,11 +155,11 @@ a:hover {
 .inner {
   margin: 0 auto; }
 
-#container .inner > * {
+#container > * {
   padding: 120px;
   padding-bottom: 132px !important;
   min-width: 600px; }
-  #container .inner > * p {
+  #container > * p {
     margin-bottom: 0; }
 
 #container .inner img {

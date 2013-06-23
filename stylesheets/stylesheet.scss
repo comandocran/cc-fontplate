@@ -76,7 +76,7 @@ a:hover {
   margin: 0 auto;
 }
 
-#container .inner > * {
+#container > * {
   padding: $lineHeightBase*5#{'px'};
   padding-bottom: $lineHeightBase*5.5#{'px'} !important; 
   min-width: 600px;
