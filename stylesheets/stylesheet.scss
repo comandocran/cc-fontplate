@@ -56,6 +56,11 @@ body {
 
 a {
   color: #d5000d;
+    -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -ms-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 a:hover {
   color: #c5000c;
@@ -186,6 +191,10 @@ a.button {
   color: rgba(149,165,166,0.56);
   letter-spacing: 1px;
   font-weight: bold;
+  &:hover {
+    color: white;
+    background: lighten(#556270, 5%);
+  }
 }
 
 

@@ -139,7 +139,12 @@ body {
   text-align: center; }
 
 a {
-  color: #d5000d; }
+  color: #d5000d;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -ms-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear; }
 
 a:hover {
   color: #c5000c; }
@@ -238,6 +243,9 @@ a.button {
   color: rgba(149, 165, 166, 0.56);
   letter-spacing: 1px;
   font-weight: bold; }
+  a.button:hover {
+    color: white;
+    background: #606f7e; }
 
 code, pre {
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal;
