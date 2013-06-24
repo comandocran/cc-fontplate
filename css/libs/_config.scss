@@ -55,7 +55,7 @@ $i : 1;
 
 // Sort list from highest to lowest
 // nth(class, X) = Name class or tag
-$class       		:   '.big', h1, h2, h3, h4, h5, h6, p, '.notes';
+$class       		:   '.big', h1, h2, h3, h4, p, '.notes';
 $baseTag 			:	p; // Define the label that is going to be the basis for the body (popularly is «p»)
 $positionBaseTag 	: 	length($class) - index($class, $baseTag);
 $maxExponent        :   length($class) - $positionBaseTag;
