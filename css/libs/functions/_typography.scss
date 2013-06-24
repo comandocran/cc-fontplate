@@ -153,6 +153,7 @@ $sizesAndClass : zip($listSizes, $class);
         @debug 'line-height          -->   '  adjustRythm(nth($typeSize, 2), nth($class, 1), $typeScaleCrossBrow);
         @debug fontsize(1);
         @debug nth($class, 1) nth($class, 2);
+        @debug $positionBaseTag;
     }
 
 }
