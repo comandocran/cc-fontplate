@@ -211,9 +211,9 @@ $sizesAndClass : zip($listSizes, $class);
         -webkit-font-smoothing: antialiased;
     }
     @if $serif {
-        font: $weight #{$fontSizeBaseBody}%/#{$lineHeightBase} $fontFamily;
+        font: $weight #{$fontSizeBaseBody}%/#{$lineHeightBodyBase} $fontFamily;
     }@else {
-        font: $weight #{$fontSizeBaseBody}%/#{$lineHeightBase} $fontFamilySans;
+        font: $weight #{$fontSizeBaseBody}%/#{$lineHeightBodyBase} $fontFamilySans;
     }
     
 }
