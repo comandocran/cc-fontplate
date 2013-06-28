@@ -65,19 +65,20 @@ $linesForSmallSizes :   1.5; // In small sizes, under of font size base, is nece
 // Font families
 $fontFamily         :   sans-serif;
 $filePath           :   '';
-$weight             :   "Normal";
-$style              :   "Normal";
+$weight             :   Normal;
+$style              :   Normal;
 $fontProperties     :   $fontFamily, $filePath, $weight, $style;
 
 $fontFamilySans     :   sans;
 $filePathSans       :   '';
-$weightSans         :   "Normal";
-$styleSans          :   "Normal";
+$weightSans         :   Normal;
+$styleSans          :   Normal;
 $fontProperties     :   $fontFamily, $filePath, $weight, $style;
 
 $serif              :   false !default;
-$renderingText      :   legebility; // Posible options Legibility, Speed or Precision of draw of typography
-$fontSmoothing      :   true; // Only support in safari
+$renderingText      :   legebility !default; // Posible options Legibility, Speed or Precision of draw of typography
+$fontSmoothing      :   true !default; // Only support in safari
+$breakWord 			:	break-word !default; // Posible values break-word, normal, auto;
 
 
 // Colors

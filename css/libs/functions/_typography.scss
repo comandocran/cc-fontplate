@@ -181,6 +181,28 @@ $sizesAndClass : zip($listSizes, $class);
 }
 
 
+@mixin breakWord($breakWord) {
+    @if $breakWord == 'break-word' {
+        word-wrap: break-word;
+    } @else if $breakWord == 'normal' {
+        word-wrap: normal;
+    } @else if $breakWord == 'auto' {
+        word-wrap: auto;
+    }
+}
+
+
+@mixin renderingText($renderingText) {
+    @if $renderingText == 'legebility' {
+        text-rendering: optimizeLegibility;
+    } @else if $renderingText == 'speed' {
+        text-rendering: optimizeSpeed;
+    } @else {
+        text-rendering: geometricPrecision; 
+    }
+}
+
+
 @mixin fontFace($fontFamily, $filePath, $weight: normal, $style: normal) {
 
   @font-face {
@@ -200,16 +222,15 @@ $sizesAndClass : zip($listSizes, $class);
 
 @mixin baseType($weight, $lineHeightBase, $fontSizeBaseBody, $fontFamily) {
 
-    @if $renderingText == 'legebility' {
-        text-rendering: optimizeLegibility;
-    } @else if $renderingText == 'speed' {
-        text-rendering: optimizeSpeed;
-    } @else {
-        text-rendering: geometricPrecision; 
-    }
+
+    @include renderingText($renderingText);
+
+    @include breakWord($breakWord);
+
     @if $fontSmoothing {
         -webkit-font-smoothing: antialiased;
     }
+
     @if $serif {
         font: $weight #{$fontSizeBaseBody}%/#{$lineHeightBodyBase} $fontFamily;
     }@else {
