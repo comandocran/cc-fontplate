@@ -79,6 +79,7 @@ $serif              :   false !default;
 $renderingText      :   legebility !default; // Posible options Legibility, Speed or Precision of draw of typography
 $fontSmoothing      :   true !default; // Only support in safari
 $breakWord 			:	break-word !default; // Posible values break-word, normal, auto;
+$indentVal			:	$lineHeightBodyBase !default;
 
 
 // Colors
