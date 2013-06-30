@@ -222,6 +222,7 @@ $sizesAndClass : zip($listSizes, $class);
     src: url('#{$filePath}.eot?#iefix')               format('embedded-opentype'),
          url('#{$filePath}.woff')                     format('woff'),
          url('#{$filePath}.ttf')                      format('truetype'),
+         url('#{$filePath}.otf')                      format('opentype'),
          url('#{$filePath}.svg##{$fontFamily}')       format('svg');
   }
 
