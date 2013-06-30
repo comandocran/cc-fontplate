@@ -143,7 +143,6 @@ $sizesAndClass : zip($listSizes, $class);
 
 // Debug
 @if $debug == 'true' {
-
     @each $class in $sizesAndClass {
         @debug 'font-size            -->   '  adjustRythm(nth($typeSize, 1), nth($class, 1), $typeScaleUnit);
         @debug 'font-size            -->   '  adjustRythm(nth($typeSize, 1), nth($class, 1), $typeScaleCrossBrow);
@@ -155,6 +154,7 @@ $sizesAndClass : zip($listSizes, $class);
         @debug nth($class, 1) nth($class, 2);
         @debug $positionBaseTag;
     }
+    @debug createFeatures();
 
 }
 
@@ -202,6 +202,7 @@ $sizesAndClass : zip($listSizes, $class);
     }
 }
 
+
 @mixin indentElement($indentVal, $element: p) {
     #{$element} {
         margin-bottom: $indentVal;
@@ -210,6 +211,16 @@ $sizesAndClass : zip($listSizes, $class);
         }
     }
 }
+
+
+@mixin features() {
+    font-feature-settings           :   $oftFeatures; 
+    -moz-font-feature-settings      :   $oftFeatures; 
+    -webkit-font-feature-settings   :   $oftFeatures; 
+    -ms-font-feature-settings       :   $oftFeatures; 
+    -o-font-feature-settings        :   $oftFeatures;         
+}
+
 
 @mixin fontFace($fontFamily, $filePath, $weight: normal, $style: normal) {
 

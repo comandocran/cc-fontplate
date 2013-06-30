@@ -27,7 +27,7 @@ footer, header, hgroup, menu, nav, section {
   font-weight: Normal;
   font-style: Normal;
   src: url(".eot");
-  src: url(".eot?#iefix") format("embedded-opentype"), url(".woff") format("woff"), url(".ttf") format("truetype"), url(".svg#sans-serif") format("svg"); }
+  src: url(".eot?#iefix") format("embedded-opentype"), url(".woff") format("woff"), url(".ttf") format("truetype"), url(".otf") format("opentype"), url(".svg#sans-serif") format("svg"); }
 
 html {
   font-size: 100%; }
@@ -49,7 +49,12 @@ h3,
 h4,
 h5,
 h6 {
-  color: #222222; }
+  color: #222222;
+  font-feature-settings: "kern" on, "liga" off, "calt" off, "dlig";
+  -moz-font-feature-settings: "kern" on, "liga" off, "calt" off, "dlig";
+  -webkit-font-feature-settings: "kern" on, "liga" off, "calt" off, "dlig";
+  -ms-font-feature-settings: "kern" on, "liga" off, "calt" off, "dlig";
+  -o-font-feature-settings: "kern" on, "liga" off, "calt" off, "dlig"; }
 
 .big, h1, h2, h3, h4, p, .notes {
   text-rendering: optimizeLegibility;

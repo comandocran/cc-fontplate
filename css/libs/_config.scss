@@ -82,6 +82,9 @@ $breakWord 			:	break-word !default; // Posible values break-word, normal, auto;
 $indentVal			:	$lineHeightBodyBase !default;
 
 
+// Feature for opentype fonts
+$oftFeatures		: 	"kern" on, "liga" off, "calt" off, "dlig"; // Posible options [kern on, liga off, calt off, dlig, hlig, swsh, salt, smcp, c2sc, ordn, lnum, onum, tnum, pnum, numr, dnom, sups, sinf, frac, zero];
+
 // Colors
 $bodyCopyColor      :   #1e1e1e;
 $headingColor       :   #222;
