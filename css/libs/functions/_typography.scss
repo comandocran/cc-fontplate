@@ -213,6 +213,29 @@ $sizesAndClass : zip($listSizes, $class);
 }
 
 
+@mixin fakeSmallcaps($smallFakeCapsColor, $smallFakeCapsWeight) {
+    font-variant: small-caps;
+    font-weight: $smallFakeCapsWeight;
+    text-transform: lowercase;
+    color: $smallFakeCapsColor;
+}
+
+
+@mixin dropcap($dropcapFloatPosition, $dropcapFontSize, $dropcapFontFamily, $dropcapTxtIndent, $dropcapMargin, $dropcapPadding, $dropcapColor, $dropcapLineHeight, $dropcapBg) {
+  &:first-letter {
+    float           : $dropcapFloatPosition;
+    margin          : $dropcapMargin;
+    padding         : $dropcapPadding;
+    font-size       : $dropcapFontSize;
+    font-family     : $dropcapFontFamily;
+    line-height     : $dropcapLineHeight;
+    text-indent     : $dropcapTxtIndent;
+    background      : $dropcapBg;
+    color           : $dropcapColor;
+  }
+}
+
+
 @mixin features() {
     font-feature-settings           :   $oftFeatures; 
     -moz-font-feature-settings      :   $oftFeatures; 

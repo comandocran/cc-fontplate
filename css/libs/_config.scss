@@ -85,6 +85,21 @@ $indentVal			:	$lineHeightBodyBase !default;
 // Feature for opentype fonts
 $oftFeatures		: 	"kern" on, "liga" off, "calt" off, "dlig"; // Posible options [kern on, liga off, calt off, dlig, hlig, swsh, salt, smcp, c2sc, ordn, lnum, onum, tnum, pnum, numr, dnom, sups, sinf, frac, zero];
 
+//Text transform
+$smallFakeCapsColor	: gray !default;
+$smallFakeCapsWeight: 600 !default;
+
+$dropcapFloatPosition	: left !default;
+$dropcapFontSize		: 4em !default;
+$dropcapFontFamily		: inherit !default;
+$dropcapTxtIndent		: 0 !default;
+$dropcapMargin			: inherit !default;
+$dropcapPadding			: inherit !default;
+$dropcapColor			: inherit !default;
+$dropcapLineHeight		: 1 !default;
+$dropcapBg				: transparent !default;
+
+
 // Colors
 $bodyCopyColor      :   #1e1e1e;
 $headingColor       :   #222;
