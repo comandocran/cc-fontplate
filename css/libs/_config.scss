@@ -22,7 +22,7 @@ $module-measure     :   1;
 
 
 // Units
-$typeScaleUnit      :   rem;
+$typeScaleUnit      :   px;
 $typeScaleCrossBrow :   em;
 
 
@@ -90,7 +90,7 @@ $smallFakeCapsColor	: gray !default;
 $smallFakeCapsWeight: 600 !default;
 
 $dropcapFloatPosition	: left !default;
-$dropcapFontSize		: 4em !default;
+$dropcapFontSize		: fontsize(7) !default;
 $dropcapFontFamily		: inherit !default;
 $dropcapTxtIndent		: 0 !default;
 $dropcapMargin			: inherit !default;

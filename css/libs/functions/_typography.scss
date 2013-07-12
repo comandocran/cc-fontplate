@@ -33,7 +33,7 @@
 
     $lines: $sizeInput/$lineHeightBase;
     @if  $sizeInput > $fontSizeBase*1.5 {
-        @return ceil($lines)+1;
+        @return ceil($lines)+2;
     } @else {
         @return round($lines);
     }
@@ -248,9 +248,9 @@ $sizesAndClass : zip($listSizes, $class);
 @mixin fontFace($fontFamily, $filePath, $weight: normal, $style: normal) {
 
   @font-face {
-    font-family: $fontFamily;
-    font-weight: $weight;
-    font-style: $style;
+    font-family : $fontFamily;
+    font-weight : $weight;
+    font-style  : $style;
 
     src: url('#{$filePath}.eot');
     src: url('#{$filePath}.eot?#iefix')               format('embedded-opentype'),
@@ -262,22 +262,10 @@ $sizesAndClass : zip($listSizes, $class);
 
 }
 
-
 @mixin baseType($weight, $lineHeightBase, $fontSizeBaseBody, $fontFamily) {
-
-
-    @include renderingText($renderingText);
-
-    @include breakWord($breakWord);
-
-    @if $fontSmoothing {
-        -webkit-font-smoothing: antialiased;
-    }
-
     @if $serif {
         font: $weight #{$fontSizeBaseBody}%/#{$lineHeightBodyBase} $fontFamily;
-    }@else {
+    } @else {
         font: $weight #{$fontSizeBaseBody}%/#{$lineHeightBodyBase} $fontFamilySans;
     }
-    
 }
