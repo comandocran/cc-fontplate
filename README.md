@@ -3,6 +3,17 @@ FONTPLATE
 
 Framework that helps you make design decisions for vertical rhythm
 
+
+1.1 — 2013-07-12
+----------------
+* Add base tag for font-size and line-height
+* Fixed debug
+* Add support otf file in @font-face
+* Add support opentype features mixin
+
+* Initial Release
+
+
 Credits
 =======
 
