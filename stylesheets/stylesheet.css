@@ -184,7 +184,7 @@ header h5 {
 header h5,
 header dfn {
   color: rgba(255, 255, 255, 0.5);
-  font-family: 'Open Sans', serif; }
+  font-family: "Open Sans", serif; }
 
 a {
   text-decoration: none; }
@@ -233,21 +233,30 @@ a.button {
 
 code, pre {
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal;
-  color: #222;
-  margin-bottom: 30px;
-  font-size: 14px; }
+  color: #666;
+  #margin-bottom: 30px;
+  text-align: left;
+  max-width: 750px;
+  margin: 0 auto; }
 
 code {
-  background-color: #f2f2f2;
-  border: solid 1px #ddd;
-  padding: 0 3px; }
+  #background-color: #f2f2f2;
+  #border: solid 1px #dddddd;
+  #padding: 0 3px; }
 
 pre {
   padding: 20px;
-  background: #303030;
-  color: #f2f2f2;
+  #background: #303030;
+  background-color: #f2f2f2;
   text-shadow: none;
-  overflow: auto; }
+  text-align: left;
+  overflow: auto;
+  border-radius: 5px;
+  color: #556270; }
+  pre span {
+    color: #b3bbc5; }
+  pre var {
+    color: #ee716f; }
 
 pre code {
   color: #f2f2f2;
