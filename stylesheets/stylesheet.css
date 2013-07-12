@@ -46,21 +46,21 @@ table {
   border-spacing: 0; }
 
 @font-face {
-  font-family: Vollkorn, serif;
+  font-family: sans-serif;
   font-weight: Normal;
   font-style: Normal;
   src: url(".eot");
-  src: url(".eot?#iefix") format("embedded-opentype"), url(".woff") format("woff"), url(".ttf") format("truetype"), url(".svg#Vollkorn, serif") format("svg"); }
+  src: url(".eot?#iefix") format("embedded-opentype"), url(".woff") format("woff"), url(".ttf") format("truetype"), url(".otf") format("opentype"), url(".svg#sans-serif") format("svg"); }
 
 html {
   font-size: 100%; }
 
 body {
-  background-color: transparent;
-  color: #556270;
+  color: #1e1e1e;
   text-rendering: optimizeLegibility;
+  word-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  font: Normal 16px/24px "Open Sans", sans-serif; }
+  font: Normal 100%/1.5 Open Sans; }
 
 .debug {
   font-size: 16rem; }
@@ -71,50 +71,54 @@ h3,
 h4,
 h5,
 h6 {
-  color: #556270; }
+  color: #222222;
+  font-feature-settings: "kern" on, "liga" off, "calt" off, "dlig";
+  -moz-font-feature-settings: "kern" on, "liga" off, "calt" off, "dlig";
+  -webkit-font-feature-settings: "kern" on, "liga" off, "calt" off, "dlig";
+  -ms-font-feature-settings: "kern" on, "liga" off, "calt" off, "dlig";
+  -o-font-feature-settings: "kern" on, "liga" off, "calt" off, "dlig"; }
 
 .big, h1, h2, h3, h4, p, .notes {
-  text-rendering: optimizeLegibility;
   line-height: 1;
   margin-top: 0; }
 
 .big {
   font-size: 11.08901em;
   font-size: 11.08901rem;
-  line-height: 1.21742em;
-  line-height: 1.21742;
+  line-height: 1.35269em;
+  line-height: 1.35269;
   margin-bottom: 0.13527em;
   margin-bottom: 1.5rem; }
 
 h1 {
   font-size: 6.85353em;
   font-size: 6.85353rem;
-  line-height: 1.31319em;
-  line-height: 1.31319;
+  line-height: 1.53206em;
+  line-height: 1.53206;
   margin-bottom: 0.21887em;
   margin-bottom: 1.5rem; }
 
 h2 {
   font-size: 4.2358em;
   font-size: 4.2358rem;
-  line-height: 1.4165em;
-  line-height: 1.4165;
+  line-height: 1.77062em;
+  line-height: 1.77062;
   margin-bottom: 0.35412em;
   margin-bottom: 1.5rem; }
 
 h3 {
   font-size: 2.61792em;
   font-size: 2.61792rem;
-  line-height: 1.71892em;
-  line-height: 1.71892;
+  line-height: 2.29189em;
+  line-height: 2.29189;
   margin-bottom: 0.57297em;
   margin-bottom: 1.5rem; }
 
 h4 {
   font-size: 1.618em;
   font-size: 1.618rem;
-  line-height: 2.78121em;
-  line-height: 2.78121;
+  line-height: 3.70828em;
+  line-height: 3.70828;
   margin-bottom: 0.92707em;
   margin-bottom: 1.5rem; }
 
@@ -148,6 +152,27 @@ a {
   a:hover {
     color: #c5000c; }
 
+#overlay-it {
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -ms-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  background-color: #ed6866;
+  position: fixed;
+  top: 23px;
+  left: 24px;
+  display: inline;
+  padding: 12px 18px;
+  padding-bottom: 13px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  color: white; }
+  #overlay-it:hover {
+    background-color: #f18786; }
+
 body > * {
   padding: 7.5em;
   padding-bottom: 8.25em; }
@@ -165,6 +190,10 @@ img {
 .install li {
   list-style: none;
   display: inline-block; }
+.install + section {
+  padding-top: 6em;
+  padding-bottom: 7.5em;
+  background-color: #fbfbfb; }
 
 /* GENERAL ELEMENT TYPE STYLES */
 header {
@@ -213,7 +242,8 @@ ul li:last-child {
 
 footer {
   font-size: 13px;
-  background-color: #ECF0F1; }
+  background-color: #ECF0F1;
+  padding-bottom: 7.5em; }
   footer footer a {
     color: #666; }
   footer footer a:hover {
@@ -245,7 +275,7 @@ code {
   #padding: 0 3px; }
 
 pre {
-  padding: 20px;
+  padding: 48px;
   #background: #303030;
   background-color: #f2f2f2;
   text-shadow: none;
@@ -328,6 +358,16 @@ form {
       font-size: 1.618rem;
       line-height: 2.78121em;
       line-height: 2.78121; }
+
+  #overlay-it {
+    top: 0;
+    right: 0;
+    left: 0;
+    display: block;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0; }
 
   body > * {
     padding: 3.75em; } }

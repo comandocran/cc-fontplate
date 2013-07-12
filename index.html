@@ -9,10 +9,15 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
     <link href='http://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,300' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="javascripts/baseliner.js"></script>
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script type="text/javascript">
+
+      window.onload = function() {
+          baseliner = new Baseliner(24);
+      }
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-34204627-2']);
@@ -37,29 +42,6 @@
             <a href="https://github.com/comandocran/cc-fontplate/zipball/master" id="download-zip" class="button">DOWNLOAD</a>
           </section>
         </header>
-        <section class="instrution">
-          <h4>Test</h4>
-          <code>
-            <pre>
-<span>// 1º Select the font size base and line-height, in px</span>
-<var>$fontSizeBase</var>       :   16;
-<var>$lineHeightBase</var>     :   24;
-
-<span>// 2º Configure your units base project</span>
-<var>$typeScaleUnit</var>      :   rem;
-<var>$typeScaleCrossBrow</var> :   em;
-
-<span>// 3º Select el ratio, depend devices your design</span>
-<var>$ratio</var>              :   $golden;
-
-<span>// 4º Define your </span>
-<var>$class</var>              :   '.big', h1, h2, h3, h4, p, '.notes';
-<var>$maxExponent</var>        :   length($class) - 1;
-
-
-$module-measure     :   1;</pre>
-          </code>                
-        </section>
         <section class="install">
           <ul>
             <li>
@@ -71,6 +53,32 @@ $module-measure     :   1;</pre>
               <p>2. @IMPORT IN YOUR SASS</p>
             </li>
           </ul>
+        </section>
+        <section>
+          <h4>BASIC CONFIGURATION</h4>
+          <code>
+            <pre>
+<span>//Insert the font-size and line-height based</span>
+<var>$fontSizeBase</var>       :   16;
+<var>$lineHeightBase</var>     :   24;
+
+<span>//What tag will apply? </span>
+<var>$baseTag</var>            :   p;
+
+<span>//Indicates the units you want to work</span>
+<var>$typeScaleUnit</var>      :   rem;
+<var>$typeScaleCrossBrow</var> :   em;
+
+<span>//Choose a ratio</span>
+<var>$ratio</var>              :   $golden;
+
+<span>//Enter the tags list, sort list from highest to lowest</span>
+<var>$class</var>              :   '.big', h1, h2, h3, h4, p, '.notes';
+
+<span>//Choose text rendering</span>
+<var>$renderingText</var>      :   legebility !default;
+<var>$fontSmoothing</var>      :   true !default; // Only support in safari</pre>
+          </code>                
         </section>
         <footer>
           Fontplate is maintained by <a href="https://github.com/comandocran">comandocran</a>. Got questions? Need help? Tweet at <a href="http://www.twitter.com/josergb">@josergb</a>.

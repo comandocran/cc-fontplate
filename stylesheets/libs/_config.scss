@@ -8,7 +8,7 @@ $typeSize           :   fontSize lineHeight marginBottom;
 
 
 // Debug
-$debug              :    'false';    
+$debug              :    false;    
 
 
 // Sizes
@@ -50,38 +50,60 @@ $myRatio			:	'';
 
 $ratio          	:   $golden;
 $listSizes          :   ();
+$i : 1;
 
 
 // Sort list from highest to lowest
 // nth(class, X) = Name class or tag
 $class       		:   '.big', h1, h2, h3, h4, p, '.notes';
-$maxExponent        :   length($class) - 1;
+$baseTag 			:	p; // Define the label that is going to be the basis for the body (popularly is «p»)
+$positionBaseTag 	: 	length($class) - index($class, $baseTag);
+$maxExponent        :   length($class) - $positionBaseTag;
 $linesForSmallSizes :   1.5; // In small sizes, under of font size base, is necessary indicate how many lines enter in one module of vertical rhythm. This number can be float
 
 
 // Font families
-$fontFamily         :   Vollkorn, serif;
+$fontFamily         :   sans-serif;
 $filePath           :   '';
 $weight             :   Normal;
 $style              :   Normal;
 $fontProperties     :   $fontFamily, $filePath, $weight, $style;
 
-$fontFamilySans     :   'Open Sans', sans-serif;
+$fontFamilySans     :   Open Sans;
 $filePathSans       :   '';
 $weightSans         :   Normal;
 $styleSans          :   Normal;
 $fontProperties     :   $fontFamily, $filePath, $weight, $style;
 
 $serif              :   false !default;
-$renderingText      :   legebility; // Posible options Legibility, Speed or Precision of draw of typography
-$fontSmoothing      :   true; // Only support in safari
+$renderingText      :   legebility !default; // Posible options Legibility, Speed or Precision of draw of typography
+$fontSmoothing      :   true !default; // Only support in safari
+$breakWord 			:	break-word !default; // Posible values break-word, normal, auto;
+$indentVal			:	$lineHeightBodyBase !default;
+
+
+// Feature for opentype fonts
+$oftFeatures		: 	"kern" on, "liga" off, "calt" off, "dlig"; // Posible options [kern on, liga off, calt off, dlig, hlig, swsh, salt, smcp, c2sc, ordn, lnum, onum, tnum, pnum, numr, dnom, sups, sinf, frac, zero];
+
+//Text transform
+$smallFakeCapsColor	: gray !default;
+$smallFakeCapsWeight: 600 !default;
+
+$dropcapFloatPosition	: left !default;
+$dropcapFontSize		: fontsize(7) !default;
+$dropcapFontFamily		: inherit !default;
+$dropcapTxtIndent		: 0 !default;
+$dropcapMargin			: inherit !default;
+$dropcapPadding			: inherit !default;
+$dropcapColor			: inherit !default;
+$dropcapLineHeight		: 1 !default;
+$dropcapBg				: transparent !default;
 
 
 // Colors
-$bodyCopyColor      :   #556270;
-$headingColor       :   #556270;
+$bodyCopyColor      :   #1e1e1e;
+$headingColor       :   #222;
 
 
 // Debug
-$debug              :   'true';
 $backgroundDebug    :   rgba(#ffd05a,.7);

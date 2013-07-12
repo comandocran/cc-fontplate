@@ -21,6 +21,11 @@ body {
         background-color:   transparent;
     }
     color: $bodyCopyColor;
+    @include renderingText($renderingText);
+    @include breakWord($breakWord);
+    @if $fontSmoothing {
+        -webkit-font-smoothing: antialiased;
+    }
     @include baseType($weight, $lineHeightBase, $fontSizeBaseBody, $fontFamily);
 }
 
@@ -39,15 +44,15 @@ h4,
 h5,
 h6 {
     color: $headingColor;
+    @include features();
 }
 
 
 %hN {
-    text-rendering: optimizeLegibility;
     line-height: 1;
     margin-top: 0;
     @if $debug == 'true' {
-        //background-color: $backgroundDebug;
+        background-color: $backgroundDebug;
     }
 }
 

@@ -33,7 +33,7 @@
 
     $lines: $sizeInput/$lineHeightBase;
     @if  $sizeInput > $fontSizeBase*1.5 {
-        @return ceil($lines)+1;
+        @return ceil($lines)+2;
     } @else {
         @return round($lines);
     }
@@ -143,7 +143,6 @@ $sizesAndClass : zip($listSizes, $class);
 
 // Debug
 @if $debug == 'true' {
-
     @each $class in $sizesAndClass {
         @debug 'font-size            -->   '  adjustRythm(nth($typeSize, 1), nth($class, 1), $typeScaleUnit);
         @debug 'font-size            -->   '  adjustRythm(nth($typeSize, 1), nth($class, 1), $typeScaleCrossBrow);
@@ -153,7 +152,9 @@ $sizesAndClass : zip($listSizes, $class);
         @debug 'line-height          -->   '  adjustRythm(nth($typeSize, 2), nth($class, 1), $typeScaleCrossBrow);
         @debug fontsize(1);
         @debug nth($class, 1) nth($class, 2);
+        @debug $positionBaseTag;
     }
+    @debug createFeatures();
 
 }
 
@@ -180,25 +181,18 @@ $sizesAndClass : zip($listSizes, $class);
 }
 
 
-@mixin fontFace($fontFamily, $filePath, $weight: normal, $style: normal) {
-
-  @font-face {
-    font-family: $fontFamily;
-    font-weight: $weight;
-    font-style: $style;
-
-    src: url('#{$filePath}.eot');
-    src: url('#{$filePath}.eot?#iefix')               format('embedded-opentype'),
-         url('#{$filePath}.woff')                     format('woff'),
-         url('#{$filePath}.ttf')                      format('truetype'),
-         url('#{$filePath}.svg##{$fontFamily}')       format('svg');
-  }
-
+@mixin breakWord($breakWord) {
+    @if $breakWord == 'break-word' {
+        word-wrap: break-word;
+    } @else if $breakWord == 'normal' {
+        word-wrap: normal;
+    } @else if $breakWord == 'auto' {
+        word-wrap: auto;
+    }
 }
 
 
-@mixin baseType($weight, $lineHeightBase, $fontSizeBaseBody, $fontFamily) {
-
+@mixin renderingText($renderingText) {
     @if $renderingText == 'legebility' {
         text-rendering: optimizeLegibility;
     } @else if $renderingText == 'speed' {
@@ -206,13 +200,72 @@ $sizesAndClass : zip($listSizes, $class);
     } @else {
         text-rendering: geometricPrecision; 
     }
-    @if $fontSmoothing {
-        -webkit-font-smoothing: antialiased;
+}
+
+
+@mixin indentElement($indentVal, $element: p) {
+    #{$element} {
+        margin-bottom: $indentVal;
+        & + #{$element} {
+            text-indent: $indentVal
+        }
     }
+}
+
+
+@mixin fakeSmallcaps($smallFakeCapsColor, $smallFakeCapsWeight) {
+    font-variant: small-caps;
+    font-weight: $smallFakeCapsWeight;
+    text-transform: lowercase;
+    color: $smallFakeCapsColor;
+}
+
+
+@mixin dropcap($dropcapFloatPosition, $dropcapFontSize, $dropcapFontFamily, $dropcapTxtIndent, $dropcapMargin, $dropcapPadding, $dropcapColor, $dropcapLineHeight, $dropcapBg) {
+  &:first-letter {
+    float           : $dropcapFloatPosition;
+    margin          : $dropcapMargin;
+    padding         : $dropcapPadding;
+    font-size       : $dropcapFontSize;
+    font-family     : $dropcapFontFamily;
+    line-height     : $dropcapLineHeight;
+    text-indent     : $dropcapTxtIndent;
+    background      : $dropcapBg;
+    color           : $dropcapColor;
+  }
+}
+
+
+@mixin features() {
+    font-feature-settings           :   $oftFeatures; 
+    -moz-font-feature-settings      :   $oftFeatures; 
+    -webkit-font-feature-settings   :   $oftFeatures; 
+    -ms-font-feature-settings       :   $oftFeatures; 
+    -o-font-feature-settings        :   $oftFeatures;         
+}
+
+
+@mixin fontFace($fontFamily, $filePath, $weight: normal, $style: normal) {
+
+  @font-face {
+    font-family : $fontFamily;
+    font-weight : $weight;
+    font-style  : $style;
+
+    src: url('#{$filePath}.eot');
+    src: url('#{$filePath}.eot?#iefix')               format('embedded-opentype'),
+         url('#{$filePath}.woff')                     format('woff'),
+         url('#{$filePath}.ttf')                      format('truetype'),
+         url('#{$filePath}.otf')                      format('opentype'),
+         url('#{$filePath}.svg##{$fontFamily}')       format('svg');
+  }
+
+}
+
+@mixin baseType($weight, $lineHeightBase, $fontSizeBaseBody, $fontFamily) {
     @if $serif {
-        font: $weight #{$fontSizeBase}px/#{$lineHeightBase}px $fontFamily;
-    }@else {
-        font: $weight #{$fontSizeBase}px/#{$lineHeightBase}px $fontFamilySans;
+        font: $weight #{$fontSizeBaseBody}%/#{$lineHeightBodyBase} $fontFamily;
+    } @else {
+        font: $weight #{$fontSizeBaseBody}%/#{$lineHeightBodyBase} $fontFamilySans;
     }
-    
 }
